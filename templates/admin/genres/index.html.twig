@@ -1,0 +1,44 @@
+{% extends "admin/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin/genres') }}
+{% endblock %}
+
+{% block title %}Управление жанрами{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="form">
+        <h1 class="form__title">Управление жанрами</h1>
+
+        <form class="input genre-input" action="{{ path('add_genre') }}" method="POST" name="add_genre">
+            <div class="genre-input__wrap">
+                <input class="input__field genre-input__field" type="text" name="genre" id="genre" data-length="{{ genreLength }}" vlaue="" placeholder="Добавить новый жанр">
+                <p class="invalid-message"></p>
+            </div>
+            <input class="btn genre-input__btn" type="submit" id="add_genre_btn" value="+">
+        </form>
+
+        <form class="input" action="{{ path('delete_genre') }}" method="POST" name="delete_label">
+            <p class="input__title">Все жанры:</p>
+            {% if genres %}
+                {% for genre in genres %}
+                    <div class="genre">
+                        <label class="genre__label">{{ genre.name }}
+                            <input type="checkbox" name="delete[]" value="{{ genre.id }}" id="{{ genre.id }}">
+                        </label>
+                    </div>
+                {% endfor %}
+
+                <input class="btn genre__submit" type="submit" id="delete_btn" disabled value="Удалить выбранные">
+            {% else %}
+                <p>А их и нету.</p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin/genres') }}
+{% endblock %}

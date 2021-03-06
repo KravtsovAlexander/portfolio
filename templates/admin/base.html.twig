@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}Кабинет Администратора{% endblock %}
+		</title>
+        {{ encore_entry_link_tags('base') }}
+		{% block stylesheets %} {% endblock %}
+
+	</head>
+	<body>
+		<header class="header">
+            <div class="container">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <h1 class="header__logo-title">
+                            Личный
+                            <br/>
+                            кабинет
+                        </h1>
+					</div>
+
+                    <nav class="header__nav">
+                        <a class="header__link" href="{{ path('projects_management') }}">Управление проектами</a>
+                        <a class="header__link" href="{{ path('genres_management') }}">Управление жанрами</a>
+                        <a class="header__link" href="{{ path('labels_management') }}">Управление метками</a>
+                        <a class="header__link" href="{{ path('contacts_management') }}">Управление контактами</a>
+                        <a class="header__link" href="{{ path('home') }}">Вернуться</a>
+                        <a class="header__link" href="{{ path('logout') }}">ВЫЙТИ</a>
+                    </nav>
+
+                    <div class="header__burger">
+                        <div class="header__burger-strip"></div>
+                        <div class="header__burger-strip"></div>
+                        <div class="header__burger-strip"></div>
+                    </div>
+                </div>
+            </div>
+
+
+		</header>
+
+	<main class="main">
+		{% block body %}{% endblock %}
+	</main>
+
+        {{ encore_entry_script_tags('base') }}
+		{% block javascripts %} {% endblock %}
+	</body>
+</html>

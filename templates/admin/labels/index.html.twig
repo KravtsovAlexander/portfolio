@@ -1,0 +1,46 @@
+{% extends "admin/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin/labels') }}
+{% endblock %}
+
+{% block title %}Управление метками{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="form">
+        <h1 class="form__title">Управление метками</h1>
+
+        <form class="input label-input" action="{{ path('add_label') }}" method="POST" name="add_label">
+            <div class="label-input__wrap">
+                <input class="input__field label-input__field" type="text" name="label" id="label" value="" data-length="{{ labelLength }}" placeholder="Создать новую метку">
+                <p class="invalid-message"></p>
+            </div>
+            <input class="btn label-input__btn" type="submit" id="add_label_btn" value="+">
+        </form>
+
+        <form class="input" action="{{ path('delete_label') }}" method="POST" name="delete_label">
+            <p class="input__title">Все метки:</p>
+            {% if labels %}
+
+                {% for label in labels %}
+                    <div class="label">
+                        <label class="label__label">{{ label.name }}
+                            <input type="checkbox" name="delete[]" value="{{ label.id }}" id="{{ label.id }}">
+                        </label>
+                    </div>
+                {% endfor %}
+
+                <input class="btn label__submit" type="submit" id="delete_btn" disabled value="Удалить выбранные">
+                {% else %}
+                    <p>А их и нету.</p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin/labels') }}
+{% endblock %}

@@ -1,0 +1,199 @@
+@import "../vars.scss";
+@import "../btn.scss";
+@import "~flickity/dist/flickity.min.css";
+@import "../slider-styles.scss";
+@import "../../admin/css/formstyles.scss";
+
+.greeting {
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    min-width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    color: $textLightColor;
+    padding: 50px 0 0 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  &__photo-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+    text-align: center;
+  }
+
+  &__photo {
+    width: 100%;
+    transform: translateX(8%);
+  }
+
+  &__description-section {
+    flex: 1;
+    padding: 1rem;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: "Play", sans-serif;
+    line-height: 3rem;
+    font-size: 2rem;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  &__btn {
+    color: $textLightColor;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+    border-color: $bgLightColor;
+    margin: 0.4rem;
+    &:hover {
+      color: $linkHoverPrimaryColor;
+      border-color: $linkHoverPrimaryColor;
+      background-color: rgba($color: #fff, $alpha: 0.7);
+    }
+  }
+}
+
+.about {
+  margin-top: var(--sectionMargin);
+  overflow: hidden;
+  position: relative;
+
+  &__bg {
+    width: 100%;
+    min-height: 150%;
+    top: -50%;
+  }
+
+  &__content {
+    color: $textLightColor;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+  }
+
+  &__text {
+    font-size: 2rem;
+    line-height: 1.4;
+    font-family: "Play";
+    max-width: 600px;
+  }
+
+  &__certificate {
+    margin-left: 4rem;
+    flex: 1;
+    display: block;
+    min-width: 500px;
+  }
+
+  &__slide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__certificate-img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.home-footer {
+  margin-top: var(--sectionMargin);
+  padding-bottom: var(--sectionMargin);
+
+  &__title {
+    text-align: center;
+  }
+
+  &__subtitle {
+    max-width: 800px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+.send-email {
+  &__submit {
+    margin: 1rem auto 0 auto;
+    border: 1px solid;
+  }
+}
+
+
+@media screen and (max-width: 991px) {
+  .greeting {
+    &__content {
+      display: flex;
+      flex-direction: column-reverse;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    &__title {
+      margin-bottom: 0;
+    }
+  }
+
+  .about {
+    &__content {
+      flex-direction: column;
+    }
+
+    &__text {
+      font-size: 1.7rem;
+      max-width: unset;
+    }
+
+    &__certificate {
+      margin: 2rem auto;
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .about__certificate {
+    height: 300px;
+    .flickity-button {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .about__text {
+    font-size: 1.2rem;
+  }
+}

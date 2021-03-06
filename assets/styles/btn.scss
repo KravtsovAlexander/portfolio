@@ -1,0 +1,18 @@
+.btn {
+  border: 3px solid;
+  min-width: 14rem;
+  line-height: 3.5rem;
+  font-size: 2rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  transition: all 0.1s ease;
+
+  &--angle {
+    &::after {
+      content: "\203A";
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+}

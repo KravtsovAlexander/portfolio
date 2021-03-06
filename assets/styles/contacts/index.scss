@@ -1,0 +1,104 @@
+@import "../../admin/css/formstyles.scss";
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.contacts-section {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__item {
+    margin-top: 1rem;
+    color: $textPrimatyColor;
+    font-size: 1.2rem;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: $textPrimatyColor;
+    display: flex;
+    align-items: center;
+    &:hover {
+      color: $linkHoverPrimaryColor;
+    }
+    &:hover > .tg-icon {
+      color: $tgColor;
+    }
+    &:hover > .vk-icon {
+      color: $vkColor;
+    }
+    &:hover > .inst-icon {
+      color: transparent;
+    }
+    &:hover > .email-icon {
+      color: red;
+    }
+
+
+    &:hover > .soc-icon {
+      &--email {
+        color: $redColor
+      }
+      &--tg {
+        color: $tgColor;
+      }
+      &--vk {
+        color: $vkColor;
+      }
+    }
+    &:hover > .inst-icon {
+      color: transparent;
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
+}
+
+.form-section {
+  max-width: 500px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.send-email {
+  &__submit {
+    margin: 1rem auto 0 auto;
+    border: 1px solid;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contacts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-section {
+    margin: var(--sectionMargin) 0;
+  }
+
+}
+
+@media screen and (max-width: 468px) {
+
+  .contacts-section {
+    &__content {
+      flex-direction: row;
+    }
+    &__item {
+      font-size: 0;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('projects') }}
+{% endblock %}
+
+{% block title %}Проекты
+{% endblock %}
+
+{% block body %}
+    {% if projects %}
+    <div class="projects">
+        <div class="container">
+        {% for project in projects %}
+
+
+    <section class="projects__card">
+        <h1 class="projects__title">{{project.title | upper}}</h1>
+        <div class="projects__tags">
+            {% for genre in project.genres %}
+                <span class="projects__tag projects__tag--genre">{{genre.name}}</span>
+            {% endfor %}
+
+            {% for label in project.labels %}
+                <span class="projects__tag projects__tag--label">{{label.name}}</span>
+            {% endfor %}
+        </div>
+        <div class="projects__content">
+            <article class="projects__description">{{project.description}}</article>
+            <div class="projects__media">
+                {% for img in project.projectImages %}
+                    <div class="projects__slide">
+                        <img class="projects__img" src="{{ asset('img_storage/'~ img.file) }}" width="200" heigth="200">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="projects__footer">
+            <div>
+                <span class="projects__type">
+                    {{project.projectType.value}}
+                </span>
+                <span class="projects__condition projects__condition--{{project.projectCondition.id}}">
+                    {{project.projectCondition.value}}
+                </span>
+            </div>
+
+            <div class="projects__links">
+                {% if project.webVersionLink %}
+                    <div>
+                        <a class="btn projects__link"  href="{{project.webVersionLink}}">Веб версия</a>
+                    </div>
+                {% endif %}
+                {% if project.googlePlayLink %}
+                    <div>
+                        <a class="btn projects__link"  href="{{project.googlePlayLink}}">GooglePlay</a>
+                    </div>
+                {% endif %}
+                {% if project.appStoreLink %}
+                    <div>
+                        <a class="btn projects__link"  href="{{project.appStoreLink}}">AppStore</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+        {% endfor %}
+        </div>
+    </div>
+    {% else %}
+        <p>А их нету.</p>
+    {% endif %}
+
+<div class="container">
+
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('projects') }}
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "admin/base.html.twig" %}
+{% block title %}Добавить проект
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin/addProject') }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="form">
+        <h1 class="form__title">Добавить проект</h1>
+        <form class="form__content"
+            name="add_project"
+            action="{{ path('add_project') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            <div class="input">
+                <input class="input__field input__field--bold" type="text" name="title" id="title" data-length={{titleLength}} placeholder="Название проекта*"/>
+                <p class="invalid-message"></p>
+            </div>
+            <div class="input">
+                <textarea class="input__field input__field--textarea" name="description" placeholder="текстовое описание проекта"></textarea>
+                <p class="invalid-message"></p>
+            </div>
+
+            <div class="input">
+                <p class="input__title">Жанры:</p>
+                <div class="checkboxes">
+                    {% for genre in genres %}
+                        <input class="checkbox" hidden type="checkbox" name="genres[]" id="genre{{ genre.id }}" value="{{genre.id}}">
+                        <label class="checkboxes__label checkboxes__label--genre" for="genre{{ genre.id }}">{{genre.name}}</label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="input">
+                <p class="input__title">Тип проекта:</p>
+                <div class="radios">
+                    {% for type in types %}
+                        <label class="radios__label">
+                            {{type.value}}:
+                            <input class="radio" type="radio" name="type" value="{{type.id}}" checked/>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="input">
+                <p class="input__title">Состояние проекта:</p>
+                <div class="radios">
+                    {% for condition in conditions %}
+                        <label class="radios__label">
+                            {{condition.value}}:
+                            <input class="radio" type="radio" name="condition" value="{{condition.id}}" checked/>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="input">
+                <p class="input__title">Загрузить изображения*</p>
+                <input class="input__field input__field--img" type="file" id="images" multiple name="images[]" accept="image/*"/>
+                <p class="invalid-message"></p>
+            </div>
+
+            <div class="input">
+                <input class="input__field" type="text" name="web_version_link" id="web_version_link" data-length={{linkLength}} placeholder="Ссылка на веб-версию"/>
+                <p class="invalid-message"></p>
+            </div>
+
+            <div class="input">
+                <input class="input__field" type="text" name="googleplay_link" id="googleplay_link" data-length={{linkLength}} placeholder="Ссылка на GooglePlay"/>
+                <p class="invalid-message"></p>
+            </div>
+
+            <div class="input">
+                <input class="input__field" type="text" name="appstore_link" id="appstore_link" data-length={{linkLength}} placeholder="Ссылка на AppStore"/>
+                <p class="invalid-message"></p>
+            </div>
+
+            <div class="input">
+                <p class="input__title">Метки:</p>
+                <div class="checkboxes">
+                    {% for label in labels %}
+                        <input class="checkbox" id="label{{ label.id }}" hidden type="checkbox" name="labels[]" value="{{label.id}}">
+                        <label class="checkboxes__label checkboxes__label--label" for="label{{ label.id }}">{{label.name}} </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="input">
+                <p class="form__message" id="form-message"></p>
+                <input class="btn form__submit" type="submit" value="Отправить">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin/addProject') }}
+{% endblock %}

@@ -1,0 +1,33 @@
+    <!doctype html>
+    <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Вход в личный кабинет</title>
+
+            {{ encore_entry_link_tags('admin/login') }}
+
+        </head>
+        <body>
+
+
+            <form class="login-form" action="{{ path('login') }}" method="post">
+                <div class="form login-form__content">
+                    {% if error %}
+                        <div>Ошибка входа</div>
+                    {% endif %}
+                    <div class="input">
+                        <input class="input__field" type="text" id="login" name="_username" placeholder="логин"/>
+                    </div>
+
+                    <div class="input">
+                        <input class="input__field" type="password" id="password" name="_password" placeholder="пароль"/>
+                    </div>
+
+                    <input type="hidden" name="_target_path" value="{{ path('projects_management') }}"/>
+                    <input class="btn form__submit login-form__btn" type="submit" value="Войти">
+                </div>
+            </form>
+
+            {{ encore_entry_script_tags('admin/login') }}
+        </body>
+    </html>

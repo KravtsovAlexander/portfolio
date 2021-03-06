@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block body %}
+    <section class="greeting">
+        <img
+            class="greeting__bg bg-img"
+            data-rellax-desktop-speed="-6"
+            data-rellax-tablet-speed="0"
+            src="{{ asset('img/greeting_bg1.png') }}"
+            alt="{{ asset('img/greeting_bg.jpg') }}"
+        >
+        <div class="container">
+            <div class="greeting__content">
+                <div class="greeting__photo-section">
+                    <img
+                        class="greeting__photo"
+                        src="{{ asset('img/greeting_photo.png') }}"
+
+                        alt="{{ asset('img/greeting_photo.png') }}"
+                    >
+                </div>
+
+                <div class="greeting__description-section">
+                    <p class="greeting__title">Игровой сценарист и нарративный дизайнер</p>
+                    <div class="greeting__buttons">
+                        <a class="btn btn--angle greeting__btn" href="{{ path('contacts') }}">КОНТАКТЫ</a>
+                        <a class="btn btn--angle greeting__btn" href="{{ path('projects') }}">ПРОЕКТЫ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <img
+            class="about__bg bg-img"
+            data-rellax-desktop-speed="-6"
+            data-rellax-tablet-speed="0"
+            src="{{ asset('img/about_bg.jpg') }}"
+            alt="{{ asset('img/about_bg.jpg') }}"
+        >
+        <div class="container">
+            <div class="about__content">
+                <p class="about__text">
+                    Свой путь в геймдеве я начал в 2017 году со школы нарративного
+                    дизайна и игровой сценаристики "нарраторика". Закончил 1 и 2
+                    ступень, курс game writing in english, сделал несколько своих игр.
+                    Также работал над коммерческими проектами. До геймдева работал
+                    тестировщиком ПО, журналистом и копирайтером.
+                </p>
+
+
+                <div class="about__certificate">
+                    <div class="about__slider">
+                        {% for i in 1..3 %}
+                            <div class="about__slide">
+                                <img
+                                    class="about__certificate-img"
+                                    src="{{ asset('img/certificate' ~ i ~ '.jpg') }}"
+                                    alt="Сертификат{{i}}"
+                                >
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer__content">
+                <h2 class="home-footer__title">Lorem ipsum dolor sit amet.</h2>
+                <p class="home-footer__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, quam? Voluptate laudantium hic eum? Praesentium nostrum assumenda a autem minima repellendus iure fugit nesciunt possimus, quo vero, earum numquam dolorem!</p>
+                <div class="home-footer__form">
+                    {% include "_contact-form.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}

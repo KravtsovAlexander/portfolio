@@ -1,0 +1,31 @@
+.flickity-button {
+  background: transparent;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.flickity-button-icon {
+  fill: white;
+}
+
+.flickity-prev-next-button.previous {
+  left: -40px;
+}
+.flickity-prev-next-button.next {
+  right: -40px;
+}
+
+.flickity-page-dots {
+  bottom: -24px;
+}
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
+}
+.flickity-page-dots .dot.is-selected {
+  background: white;
+}

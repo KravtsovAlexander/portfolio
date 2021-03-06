@@ -1,0 +1,122 @@
+@import "../../styles/vars.scss";
+@import "../../styles/btn.scss";
+
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+.invalid {
+  box-shadow: 0 0 3px 2px $redColor;
+  transition: box-shadow 0.2s ease;
+}
+
+.form {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem 0;
+
+  &__message {
+    padding: 0.3rem 0;
+  }
+
+  &__submit {
+    border-color: $greyColor;
+    background-color: $bgLightColor;
+    color: $textPrimatyColor;
+    &:hover {
+      border-color: $linkHoverPrimaryColor;
+      color: $textLightColor;
+      background-color: $linkHoverPrimaryColor;
+    }
+  }
+}
+
+.invalid-message {
+  color: $textSecondaryColor;
+  padding: 0.5rem;
+  font-size: 0.8em;
+}
+
+.input {
+  width: 100%;
+  padding-top: 1rem;
+
+  &__title {
+    font-size: 1.15rem;
+  }
+
+  &__field {
+    width: 100%;
+    border: 1px solid $greyColor;
+    padding: 0.5rem;
+    font-weight: 100;
+
+    &--img {
+      border: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--textarea {
+      resize: none;
+      height: 150px;
+    }
+  }
+}
+
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  &__label {
+    cursor: pointer;
+    margin: 0.3rem;
+    border: 1px solid $textSecondaryColor;
+    color: $textSecondaryColor;
+    border-radius: 15px;
+    padding: 0.3rem;
+    transition: all 0.1s ease;
+
+    .checkbox:checked + & {
+      background-color: $linkHoverPrimaryColor;
+      border-color: $linkHoverPrimaryColor;
+      color: $textLightColor;
+    }
+
+    &--genre {
+      .checkbox:checked + & {
+        background-color: $blueColor1;
+        border-color: $blueColor1;
+        color: $textLightColor;
+      }
+    }
+
+    &--label {
+      .checkbox:checked + & {
+        background-color: $blueColor2;
+        border-color: $blueColor2;
+        color: $textLightColor;
+      }
+    }
+  }
+}
+
+.radios {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__label {
+    cursor: pointer;
+    margin: 0.3rem;
+    padding: 0.3rem;
+  }
+}

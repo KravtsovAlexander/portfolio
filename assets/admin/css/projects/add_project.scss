@@ -1,0 +1,46 @@
+@import "../formstyles.scss";
+
+.projects {
+  width: 100%;
+
+  &__item {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem;
+    margin: 0.5rem 0;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  &__btn {
+    min-width: unset;
+    line-height: unset;
+    font-size: 1.5rem;
+    border-color: unset;
+    color: $textSecondaryColor;
+    border-color: $greyColor;
+    padding: 0.3rem;
+
+    &:hover {
+      border-color: $redColor;
+      background-color: $redColor;
+      color: $textLightColor;
+    }
+  }
+}
+
+.add-project-btn {
+  margin: 1rem 0;
+  color: $textPrimatyColor;
+  &:hover {
+    border-color: $greenColor;
+    background-color: $greenColor;
+    color: $textLightColor;
+  }
+}

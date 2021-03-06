@@ -1,0 +1,98 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Управление контактами
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin/contacts') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="form">
+            <h1 class="form__title">Управление контактами</h1>
+            <p class="success-message">{{ result }}</p>
+            {% for error in errors %}
+                <p class="invalid-message">{{ error }}</p>
+            {% endfor %}
+            <form class="form__content" action="{{ path('edit_contacts') }}", method="POST" name="contacts_form">
+                <div>
+                    <label class="input">
+                        Телефон:
+                        <input
+                            class="input__field"
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            data-length="{{ phoneLength }}"
+                            value="{{ contacts.phone }}"
+                        >
+                        <p class="invalid-message"></p>
+                    </label>
+                </div>
+                <div>
+                    <label class="input">
+                        Email:
+                        <input
+                            class="input__field"
+                            type="text"
+                            name="email"
+                            id="email"
+                            data-length="{{ emailLength }}"
+                            value="{{ contacts.email }}"
+                        >
+                        <p class="invalid-message"></p>
+                    </label>
+                </div>
+                <div>
+                    <label class="input">
+                        VK:
+                        <input
+                            class="input__field"
+                            type="text"
+                            name="vk"
+                            id="vk"
+                            data-length="{{ vkLength }}"
+                            value="{{ contacts.vk }}"
+                        >
+                        <p class="invalid-message"></p>
+                    </label>
+                </div>
+                <div>
+                    <label class="input">
+                        Instagram:
+                        <input
+                            class="input__field"
+                            type="text"
+                            name="instagram"
+                            id="instagram"
+                            data-length="{{ instagramLength }}"
+                            value="{{ contacts.instagram }}"
+                        >
+                        <p class="invalid-message"></p>
+                    </label>
+                </div>
+                <div>
+                    <label class="input">
+                        Telegram:
+                        <input
+                            class="input__field"
+                            type="text"
+                            name="telegram"
+                            id="telegram"
+                            data-length="{{ telegramLength }}"
+                            value="{{ contacts.telegram }}"
+                        >
+                        <p class="invalid-message"></p>
+                    </label>
+                </div>
+                <input class="btn form__submit" type="submit" value="Подтвердить">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin/contacts') }}
+{% endblock %}

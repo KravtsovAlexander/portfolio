@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('contacts') }}
+{% endblock %}
+
+{% block title %}Контакты
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="contacts">
+            <section class="contacts-section">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <ul class="contacts-section__content">
+                    <li class="contacts-section__item">
+                        <a class="contacts-section__link"
+                            href="mailto:{{ twigGlobContacts.email }}">
+                                <span class="material-icons email-icon  contacts-section__icon">local_post_office</span>
+                                {{ contacts.email }}
+                        </a>
+                    </li>
+                    <li class="contacts-section__item">
+                        <span class="material-icons contacts-section__icon">phone</span>
+                        {{ twigGlobContacts.phoneNum }}
+                    </li>
+                    <li class="contacts-section__item">
+                        <a class="contacts-section__link"
+                            href="{{ path('contacts_redirect', {'go_to': 'vk'}) }}">
+                            <i class="fab fa-vk soc-icon vk-icon contacts-section__icon" aria-hidden="true"></i>
+                            {{ contacts.vk }}
+                        </a>
+                    </li>
+                    <li class="contacts-section__item">
+                        <a class="contacts-section__link"
+                            href="{{ path('contacts_redirect', {'go_to': 'instagram'}) }}"
+                        >
+                            <i class="fab fa-instagram inst-icon contacts-section__icon" aria-hidden="true">
+                                <i class="fab fa-instagram inst-icon__gradient-helper" aria-hidden="true"></i>
+                            </i>
+                            {{ contacts.instagram }}
+                        </a>
+                    </li>
+                    <li class="contacts-section__item">
+                        <a class="contacts-section__link"
+                            href="{{ path('contacts_redirect', {'go_to': 'telegram'}) }}"
+                        >
+                            <i class="fab fa-telegram tg-icon contacts-section__icon" aria-hidden="true"></i>
+                            {{ contacts.telegram }}
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="form-section">
+                <p>Lorem ipsum dolor sit amet.</p>
+                {% include "_contact-form.html.twig" %}
+            </section>
+        </div>
+    </div>
+{% endblock %}

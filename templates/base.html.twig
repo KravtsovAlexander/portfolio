@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}Анатолий Громов
+            {% endblock %}
+        </title>
+        {{ encore_entry_link_tags('base') }}
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <a class="header__logo-title" href="{{ path('home') }}">
+                            Громов
+                            <br/>
+                            Анатолий
+                        </a>
+                        <div class="header__icons">
+                            <a
+                                class="header__icon-wrapper"
+                                href="{{ path('contacts_redirect', {'go_to': 'vk'}) }}"
+                            >
+                                <i class="fab fa-vk header__icon vk-icon" aria-hidden="true"></i>
+                            </a>
+                            <a
+                                class="header__icon-wrapper"
+                                href="{{ path('contacts_redirect', {'go_to': 'instagram'}) }}"
+                            >
+                                <i class="fab fa-instagram header__icon inst-icon" aria-hidden="true">
+                                    <i class="fab fa-instagram inst-icon__gradient-helper" aria-hidden="true"></i>
+                                </i>
+                            </a>
+                            <a
+                                class="header__icon-wrapper"
+                                href="{{ path('contacts_redirect', {'go_to': 'telegram'}) }}"
+                            >
+                                <i class="fab fa-telegram header__icon tg-icon" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <nav class="header__nav">
+                        <a class="header__link" href="{{ path('home') }}">Начало</a>
+                        <a class="header__link" href="{{ path('projects') }}">Проекты</a>
+                        <a class="header__link" href="#">Примеры текстов</a>
+                        <a class="header__link" href="{{ path('contacts') }}">Контакты</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="header__link" href="{{ path('login') }}">В ЛИЧНЫЙ КАБИНЕТ</a>
+                        {% endif %}
+                    </nav>
+
+                    <div class="header__burger">
+                        <div class="header__burger-strip"></div>
+                        <div class="header__burger-strip"></div>
+                        <div class="header__burger-strip"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="header-separator"></div>
+            </div>
+            {% block body %}{% endblock %}
+        </main>
+
+{% block footer %}
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__logo">
+                        <p>Анатолий Громов — игровой сценарист и нарративный дизайнер</p>
+                    </div>
+                    <div class="footer__contacts">
+                        <div class="footer__text">
+                            <p>Телефон: {{ twigGlobContacts.phoneNum }}</p>
+                            <p>Email:
+                                <a href="mailto:{{ twigGlobContacts.email }}">
+                                {{ twigGlobContacts.email }}</a>
+                            </p>
+                        </div>
+                        <ul class="footer__icons">
+                            <li class="footer__icons-item">
+                                <a href="{{ path('contacts_redirect', {'go_to': 'vk'}) }}">
+                                    <i class="fab fa-vk footer__icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li class="footer__icons-item">
+                                <a href="{{ path('contacts_redirect', {'go_to': 'instagram'}) }}">
+                                    <i class="fab fa-instagram footer__icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li class="footer__icons-item">
+                                <a href="{{ path('contacts_redirect', {'go_to': 'telegram'}) }}">
+                                    <i class="fab fa-telegram footer__icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+{% endblock %}
+
+        {{ encore_entry_script_tags('base') }}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

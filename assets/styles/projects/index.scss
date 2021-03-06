@@ -1,0 +1,169 @@
+@import "../vars.scss";
+@import "../btn.scss";
+@import "~flickity/dist/flickity.min.css";
+@import "~flickity-fade/flickity-fade.css";
+
+
+.projects {
+  width: 100%;
+
+  &__card {
+    margin: 3rem 0;
+
+    border-bottom: 1px solid $greyColor;
+    padding-bottom: 0.5rem;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    padding: 0.3rem;
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 0.3rem 0.3rem 0.3rem 0;
+    &--genre {
+      border-color: $blueColor1;
+      color: $blueColor1;
+    }
+    &--label {
+      border-color: $blueColor2;
+      color: $blueColor2;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    margin: 1rem 0;
+  }
+
+  &__description {
+    width: 50%;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  &__media {
+    width: 50%;
+    display: block;
+  }
+
+  &__slide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    height: unset;
+    width: unset;
+    display: block;
+    max-width: 100%;
+    max-height: 55vh;
+    border-radius: 8px;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    margin: 0 1rem;
+    color: $textPrimatyColor;
+    border: 2px solid;
+    transition: all 0.2s ease;
+    &:hover {
+      background-color: $linkHoverPrimaryColor;
+      color: $textLightColor;
+      border-color: $linkHoverPrimaryColor;
+    }
+  }
+
+  &__type {
+    font-weight: 100;
+    font-style: italic;
+  }
+
+  &__condition {
+    display: block;
+
+    &--1 {
+      color: $greenColor;
+      &::after {
+        content: "\2714";
+      }
+    }
+
+    &--2 {
+      color: $greenColor;
+      &::after {
+        content: "\270D";
+      }
+    }
+
+    &--3 {
+      color: $redColor;
+      &::after {
+        content: "\2716";
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .projects__link {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    min-width: 9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects {
+    &__content {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    &__description {
+      width: 100%;
+    }
+
+    &__media {
+      width: 100%;
+      padding: 0.5rem 0;
+    }
+
+    &__img {
+      max-height: unset;
+    }
+
+    &__links {
+      flex-direction: column;
+    }
+
+    &__link {
+      margin-top: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~material-design-icons/iconfont/material-icons.css";
+
+.vk-icon,
+.tg-icon,
+.inst-icon,
+.email-icon {
+  transition: all 0.4s ease;
+}
+
+.vk-icon:hover {
+  color: #2787f5;
+}
+
+.tg-icon:hover {
+  color: #28a8e9;
+}
+
+.inst-icon {
+  position: relative;
+  &:hover {
+    color: transparent;
+  }
+
+  &__gradient-helper {
+    background: #ee0979;
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    background-clip: text;
+    color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: inherit;
+    z-index: -1;
+  }
+}

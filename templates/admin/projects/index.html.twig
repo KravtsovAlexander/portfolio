@@ -1,0 +1,35 @@
+{% extends "admin/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin/addProject') }}
+{% endblock %}
+
+{% block title %}Управление проектами
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="form">
+        <h1 class="form__title">Управление проектами</h1>
+        <a class="btn add-project-btn" href="{{ path('form_project') }}">Добавить проект</a>
+        {% if projects %}
+            <div class="projects">
+                {% for project in projects %}
+                    <form class="projects__item" action="{{ path('delete_project', {'id': project.id}) }}" method="POST" style="border: 1px solid black">
+                            <p class="projects__title">
+                                {{ project.title | upper }}
+                            </p>
+                            <input class="btn projects__btn" type="submit" value="Удалить">
+                    </form>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>А их и нету.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{# {% block javascripts %}
+    {{ encore_entry_script_tags('admin/addProject') }}
+{% endblock %} #}
